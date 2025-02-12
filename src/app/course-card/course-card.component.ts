@@ -8,6 +8,7 @@ import {
   Inject,
   Input,
   OnInit,
+  Optional,
   Output,
   QueryList,
   ViewEncapsulation,
@@ -32,10 +33,10 @@ export class CourseCardComponent implements OnInit {
   @Output("courseChanged")
   courseEmitter = new EventEmitter<Course>();
 
-  constructor(private coursesService: CoursesService) {}
+  constructor(@Optional() private coursesService: CoursesService) {}
 
   ngOnInit() {
-    console.log("coursesService course card " + this.coursesService.id);
+    // console.log("coursesService course card " + this.coursesService.id);
   }
 
   onSaveClicked(description: string) {
